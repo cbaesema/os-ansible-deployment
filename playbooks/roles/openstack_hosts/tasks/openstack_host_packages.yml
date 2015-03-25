@@ -26,3 +26,18 @@
   with_items: openstack_host_apt_packages
   tags:
     - openstack-host-packages
+    
+-name: Install host yum packages
+  yum:
+    name: ""{{ item }}""
+    state: present
+    update_cache: yes
+    cache_valid_time: 600
+  register: install_yum_packages
+  until: install_yum_packages|success
+  retries: 5
+  delay: 2
+  with_items: openstack_host_yum_packages
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+  tags:
+    - openstack-host-packages    
