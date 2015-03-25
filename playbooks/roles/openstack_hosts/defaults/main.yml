@@ -72,6 +72,26 @@ openstack_host_apt_packages:
   - time
   - vlan
   - wget
+  
+openstack_host_yum_packages:  
+  - bridge-utils
+  - gcc
+  - gcc-c++
+  - make
+  - libcgroup
+  - curl
+  - dstat
+  - htop
+  - iptables
+  - kmod-libs
+  - lvm2
+  - rsync
+  - rsyslog
+  - sshpass
+  - sysstat
+  - time
+  - vconfig
+  - wget
 
 # System control kernel tuning
 openstack_kernel_options:
